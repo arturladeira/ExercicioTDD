@@ -8,6 +8,7 @@ public class Fatura {
 	private Date dataFat;
 	private float valTotal;
 	
+	
 	public String getCliente() {
 		return Cliente;
 	}
