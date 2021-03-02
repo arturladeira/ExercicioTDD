@@ -6,9 +6,10 @@ public class Boleto {
 	private Date dataBol;
 	private float valPago;
 	
-	public Boleto ( float valPago) {
+	public Boleto (int codBarras, Date dataBol, float valPago) {
 		super();
-		
+		this.codBarras = codBarras;
+		this.dataBol = dataBol;
 		this.valPago = valPago;
 	}
 
