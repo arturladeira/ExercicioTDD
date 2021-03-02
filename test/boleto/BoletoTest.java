@@ -8,7 +8,7 @@ public class BoletoTest {
 	@Test
 	public void verificaValorPago() {
 		
-		Boleto bol = new Boleto();
+		Boleto bol = new Boleto(200);
 		Assertions.assertEquals(200, bol.getValPago());
 		
 	}

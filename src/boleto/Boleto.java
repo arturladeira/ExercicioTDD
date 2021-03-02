@@ -5,6 +5,12 @@ public class Boleto {
 	private int codBarras;
 	private Date dataBol;
 	private float valPago;
+	
+	public Boleto ( float valPago) {
+		super();
+		
+		this.valPago = valPago;
+	}
 
 	
 	public int getCodBarras() {
