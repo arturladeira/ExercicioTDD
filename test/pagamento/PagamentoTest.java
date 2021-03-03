@@ -11,9 +11,10 @@ public class PagamentoTest {
 	@Test
 	public void pagarBoleto() {
 		Pagamento pag = new Pagamento();
-		int valorPago = 0;
+		float valorPago = 0;
 		Boleto boleto1 = new Boleto(123, new java.util.Date(01-02-2020), 200);
-		Assertions.assertEquals(201, pag.pagarBoleto());
+		valorPago = pag.pagarBoleto(boleto1);
+		Assertions.assertEquals(valorPago, boleto1.getValPago());
 	}
 
 }
