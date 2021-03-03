@@ -11,6 +11,9 @@ public class Pagamento {
 	private ArrayList boletos;
 	private String Status;
 	
+	public void addBoleto(Boleto boleto) {
+		boletos.add(boleto);
+	}
 	
 	public Pagamento() {
 		boletos = new ArrayList();
@@ -32,5 +35,9 @@ public class Pagamento {
 		}
 		
 		return valorPago;
+	}
+	
+	public int getQtdeItems() {
+		return boletos.size();
 	}
 }

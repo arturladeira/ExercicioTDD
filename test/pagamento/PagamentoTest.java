@@ -3,10 +3,23 @@ package pagamento;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.ArrayList;
+
 import boleto.Boleto;
 import fatura.Fatura;
 
 public class PagamentoTest {
+	
+	@Test
+	public void adicionarBoleto() {
+		Pagamento pag = new Pagamento();
+		
+		Boleto boleto1 = new Boleto(123, new java.util.Date(01-02-2020), 200);
+		pag.addBoleto(boleto1);
+		assertTrue(pag.getQtdeItems() == 1);
+	}
 	
 	@Test
 	public void pagarBoleto() {
