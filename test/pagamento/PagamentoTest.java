@@ -62,15 +62,37 @@ public class PagamentoTest {
 		Assertions.assertEquals(valorTotalBoleto, valorPago);
 	}
 	
-	@DisplayName("Testa o status da fatura para pagamento menores de fatura")
+	@DisplayName("Testa o status da fatura para somatório dos boletos menor que a fatura")
 	@Test
-	public void pagarFatura() {
+	public void pagarFaturaMenor() {
 		Fatura fat = new Fatura("Artur", new Date(), 600);
 		double valorPago = 0;
 		boletoList.add(new Boleto(123, new Date(), 200));
 		boletoList.add(new Boleto(1234, new Date(), 300));
 		valorPago = pag.pagarBoleto(boletoList);
 		Assertions.assertEquals(pag.getStatus(valorPago, fat.getValTotal()), "ABERTO");
+	}
+	
+	@DisplayName("Testa o status da fatura para somatório dos boletos igual a fatura")
+	@Test
+	public void pagarFaturaIgual() {
+		Fatura fat = new Fatura("Artur", new Date(), 500);
+		double valorPago = 0;
+		boletoList.add(new Boleto(123, new Date(), 200));
+		boletoList.add(new Boleto(1234, new Date(), 300));
+		valorPago = pag.pagarBoleto(boletoList);
+		Assertions.assertEquals(pag.getStatus(valorPago, fat.getValTotal()), "PAGO");
+	}
+	
+	@DisplayName("Testa o status da fatura para somatório dos boletos maior a fatura")
+	@Test
+	public void pagarFaturaMaior() {
+		Fatura fat = new Fatura("Artur", new Date(), 500);
+		double valorPago = 0;
+		boletoList.add(new Boleto(123, new Date(), 400));
+		boletoList.add(new Boleto(1234, new Date(), 300));
+		valorPago = pag.pagarBoleto(boletoList);
+		Assertions.assertEquals(pag.getStatus(valorPago, fat.getValTotal()), "PAGO");
 	}
 
 }
