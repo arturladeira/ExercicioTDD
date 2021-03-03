@@ -7,9 +7,9 @@ import java.util.Date;
 public class Boleto {
 	private int codBarras;
 	private Date dataBol;
-	private float valPago;
+	private double valPago;
 	
-	public Boleto (int codBarras, Date dataBol, float valPago) {
+	public Boleto (int codBarras, Date dataBol, double valPago) {
 		super();
 		this.codBarras = codBarras;
 		this.dataBol = dataBol;
@@ -29,10 +29,10 @@ public class Boleto {
 	public void setDataBol(Date dataBol) {
 		this.dataBol = dataBol;
 	}
-	public float getValPago() {
+	public double getValPago() {
 		return valPago;
 	}
-	public void setValPago(float valPago) {
+	public void setValPago(double valPago) {
 		this.valPago = valPago;
 	}
 	

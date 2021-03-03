@@ -6,9 +6,9 @@ public class Fatura {
 	
 	private String cliente;
 	private Date dataFat;
-	private float valTotal;
+	private double valTotal;
 	
-	public Fatura (String cliente, Date dataFat, float valTotal ) {
+	public Fatura (String cliente, Date dataFat, double valTotal ) {
 		super();
 		this.cliente = cliente;
 		this.dataFat = dataFat;
@@ -27,10 +27,10 @@ public class Fatura {
 	public void setDataFat(Date dataFat) {
 		this.dataFat = dataFat;
 	}
-	public float getValTotal() {
+	public double getValTotal() {
 		return valTotal;
 	}
-	public void setValTotal(float valTotal) {
+	public void setValTotal(double valTotal) {
 		this.valTotal = valTotal;
 	}
 	
