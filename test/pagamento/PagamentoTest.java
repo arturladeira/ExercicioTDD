@@ -51,7 +51,7 @@ public class PagamentoTest {
 		pag.addBoleto(new Boleto(123, new Date(), 200));
 		pag.addBoleto(new Boleto(1234, new Date(), 300));
 		valorPago = pag.pagarBoleto();
-		Assertions.assertEquals(fat.getValTotal(), valorPago);
+		Assertions.assertEquals(pag.getStatus(valorPago, fat.getValTotal()), "ABERTO");
 	}
 
 }

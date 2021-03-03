@@ -9,21 +9,16 @@ import boleto.Boleto;
 public class Pagamento {
 
 	private ArrayList boletos;
-	private String Status;
+	private String status;
 	
 	public void addBoleto(Boleto boleto) {
 		boletos.add(boleto);
 	}
 	
 	public Pagamento() {
+		super();
 		boletos = new ArrayList();
-	}
-	
-	public String getStatus() {
-		return Status;
-	}
-	public void setStatus(String status) {
-		Status = status;
+		this.status = "ABERTO";
 	}
 	
 	
@@ -35,6 +30,16 @@ public class Pagamento {
 		}
 		
 		return valorPago;
+	}
+	public String getStatus(double valorPago, double valorTotal){
+		Pagamento pag = new Pagamento();
+		if (valorPago < valorTotal) {
+			pag.status = "ABERTO";
+			return pag.status;
+		} else {
+			pag.status = "PAGO";
+			return pag.status;
+		}	
 	}
 	
 	public int getQtdeItems() {
