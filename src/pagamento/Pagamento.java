@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Pagamento {
 
-	private ArrayList items;
+	private ArrayList boletos;
 	private String Status;
 	
 	public String getStatus() {
@@ -12,5 +12,9 @@ public class Pagamento {
 	}
 	public void setStatus(String status) {
 		Status = status;
+	}
+	public Integer pagarBoleto() {
+		
+		return null;
 	}
 }

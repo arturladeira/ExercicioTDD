@@ -10,14 +10,14 @@ public class FaturaTest {
 	
 	@Test
 	public void verificaValorTotal() {
-		Fatura bol = new Fatura("Artur", new java.util.Date(01-02-2020), 201);
-		Assertions.assertEquals(201, bol.getValTotal());
+		Fatura fat = new Fatura("Artur", new java.util.Date(01-02-2020), 201);
+		Assertions.assertEquals(201, fat.getValTotal());
 	}
 	
 	@Test
 	public void verificaCliente() {
-		Fatura bol = new Fatura("Artur", new java.util.Date(01-02-2020), 201);
-		Assertions.assertEquals("Artur", bol.getCliente());
+		Fatura fat = new Fatura("Artur", new java.util.Date(01-02-2020), 201);
+		Assertions.assertEquals("Artur", fat.getCliente());
 	}
 	
 	
