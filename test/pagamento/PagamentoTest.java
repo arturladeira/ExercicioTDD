@@ -36,6 +36,8 @@ public class PagamentoTest {
 		double valorPago = 0;
 		Boleto boleto1 = new Boleto(123, new java.util.Date(01-02-2020), 200);
 		Boleto boleto2 = new Boleto(1234, new java.util.Date(02-02-2020), 300);
+		pag.addBoleto(boleto1);
+		pag.addBoleto(boleto2);
 		valorPago = pag.pagarBoleto();
 		Assertions.assertEquals(500, valorPago);
 	}
