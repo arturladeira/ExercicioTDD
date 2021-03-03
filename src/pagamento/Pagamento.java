@@ -11,8 +11,8 @@ public class Pagamento {
 	private ArrayList boletos;
 	private String status;
 	
-	public void addBoleto(Boleto boleto) {
-		boletos.add(boleto);
+	public void addBoleto(ArrayList<Boleto> boletoList) {
+		boletos.add(boletoList);
 	}
 	
 	public Pagamento() {
@@ -22,7 +22,7 @@ public class Pagamento {
 	}
 	
 	
-	public double pagarBoleto() {
+	public double pagarBoleto(ArrayList<Boleto> boletos) {
 		double valorPago = 0;
 		for (Iterator i = boletos.iterator(); i.hasNext();) {
 			Boleto boleto = (Boleto) i.next();

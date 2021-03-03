@@ -1,6 +1,8 @@
 package pagamento;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -13,9 +15,18 @@ import fatura.Fatura;
 
 public class PagamentoTest {
 	
+	Pagamento pag;
+	ArrayList<Boleto> boletoList;
+	
+	@BeforeEach
+	public void init() {
+		pag = new Pagamento();
+		boletoList = new ArrayList<Boleto>();
+	}
+	
 	@Test
 	public void adicionarBoleto() {
-		Pagamento pag = new Pagamento();
+		
 		Boleto boleto1 = new Boleto(123, new Date(), 200);
 		pag.addBoleto(boleto1);
 		assertTrue(pag.getQtdeItems() == 1);
@@ -23,7 +34,7 @@ public class PagamentoTest {
 	
 	@Test
 	public void pagarUmBoleto() {
-		Pagamento pag = new Pagamento();
+		
 		double valorPago = 0;
 		Boleto boleto1 = new Boleto(123, new Date(), 200);
 		pag.addBoleto(boleto1);
@@ -31,21 +42,25 @@ public class PagamentoTest {
 		Assertions.assertEquals(valorPago, boleto1.getValPago());
 	}
 	
+	@DisplayName("Testa o somatório dos valores dos boleto e o pagamento dos boletos")
 	@Test
-	public void pagarDoisBoletos() {
-		Pagamento pag = new Pagamento();
+	public void pagarMaisBoletos() {
 		double valorPago = 0;
-		Boleto boleto1 = new Boleto(123, new Date(), 200);
-		Boleto boleto2 = new Boleto(1234, new Date(), 300);
-		pag.addBoleto(boleto1);
-		pag.addBoleto(boleto2);
-		valorPago = pag.pagarBoleto();
-		Assertions.assertEquals(500, valorPago);
+		double valorTotalBoleto = 0;
+		boletoList.add(new Boleto(123, new Date(), 200));
+		boletoList.add(new Boleto(1234, new Date(), 300));
+		pag.addBoleto(boletoList);
+		valorPago = pag.pagarBoleto(boletoList);
+		for (Boleto boleto : boletoList) {
+			valorTotalBoleto += boleto.getValPago();
+		}
+		
+		Assertions.assertEquals(valorTotalBoleto, valorPago);
 	}
 	
 	@Test
 	public void pagarFatura() {
-		Pagamento pag = new Pagamento();
+		
 		Fatura fat = new Fatura("Artur", new Date(), 600);
 		double valorPago = 0;
 		pag.addBoleto(new Boleto(123, new Date(), 200));
