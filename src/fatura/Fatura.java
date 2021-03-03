@@ -4,16 +4,22 @@ import java.util.Date;
 
 public class Fatura {
 	
-	private String Cliente;
+	private String cliente;
 	private Date dataFat;
 	private float valTotal;
 	
+	public Fatura (String cliente, Date dataFat, float valTotal ) {
+		super();
+		this.cliente = cliente;
+		this.dataFat = dataFat;
+		this.valTotal = valTotal;
+	}
 	
 	public String getCliente() {
-		return Cliente;
+		return cliente;
 	}
 	public void setCliente(String cliente) {
-		Cliente = cliente;
+		cliente = cliente;
 	}
 	public Date getDataFat() {
 		return dataFat;
